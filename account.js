@@ -16,34 +16,19 @@ function setCredential(_apiKey, _apiSecret) {
   apiSecret = _apiSecret;
 }
 
-function sendMessages(params, callback) {
-  const url = `https://solapi.com/SimpleMessage/3/sendMessages`;
-  const date = moment.utc().format();
+function getBalance(callback) {
+  const url = `https://api.coolsms.co.kr/sms/2/balance`;
+  //const date = moment.utc().format();
   const salt = uniqid();
-  const hmacData = date + salt;
+  const timestamp = moment().tz('Asia/Seoul').unix();
+  const hmacData = timestamp + salt;
   const signature = HmacMD5(hmacData, apiSecret).toString();
-  let groupOptions = {
-    "appId": null,
-    "osPlatform": "NodeJS",
-    "devLanguage": "NodeJS",
-    "sdkVersion": "JS",
-    "appVersion": null,
-    "siteUser": "__private__",
-    "mode": "real",
-    "forceSms": "false",
-    "onlyAta": "false"
-  };
-
-  params.groupOptions = Object.assign(groupOptions, params.options);
+  const request_url = `${url}?api_key=${apiKey}&timestamp=${timestamp}&salt=${salt}&signature=${signature}`;
 
   request(
     {
-      url: url,
-      method: 'post',
-      headers: {
-        'Authorization': `HMAC-MD5 ApiKey=${apiKey}, Date=${date}, Salt=${salt}, Signature=${signature}`
-      },
-      json: params 
+      url: request_url,
+      method: 'get'
     },
     function (error, response, body) {
       console.log('error', error);
@@ -60,4 +45,4 @@ function sendMessages(params, callback) {
 }
 
 module.exports.setCredential = setCredential;
-module.exports.sendMessages = sendMessages;
+module.exports.getBalance = getBalance;
