@@ -16,34 +16,23 @@ function setCredential(_apiKey, _apiSecret) {
   apiSecret = _apiSecret;
 }
 
-function sendMessages(params, callback) {
-  const url = `https://solapi.com/SimpleMessage/3/sendMessages`;
+function getSentMessages(params, callback) {
+  const url = `https://solapi.com/MessageLog/3/getSentMessages`;
   const date = moment.utc().format();
   const salt = uniqid();
   const hmacData = date + salt;
   const signature = HmacMD5(hmacData, apiSecret).toString();
-  let groupOptions = {
-    "appId": null,
-    "osPlatform": "NodeJS",
-    "devLanguage": "NodeJS",
-    "sdkVersion": "JS",
-    "appVersion": null,
-    "siteUser": "__private__",
-    "mode": "real",
-    "forceSms": "false",
-    "onlyAta": "false"
-  };
+  const request_url = url + '?' + Object.keys(params).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
 
-  params.groupOptions = Object.assign(groupOptions, params.options);
+  console.log(request_url);
 
   request(
     {
-      url: url,
-      method: 'post',
+      url: request_url,
+      method: 'get',
       headers: {
         'Authorization': `HMAC-MD5 ApiKey=${apiKey}, Date=${date}, Salt=${salt}, Signature=${signature}`
-      },
-      json: params 
+      }
     },
     function (error, response, body) {
       console.log('error', error);
@@ -60,4 +49,4 @@ function sendMessages(params, callback) {
 }
 
 module.exports.setCredential = setCredential;
-module.exports.sendMessages = sendMessages;
+module.exports.getSentMessages = getSentMessages;
