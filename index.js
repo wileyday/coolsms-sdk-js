@@ -8,6 +8,7 @@ const simpleMessage = require('./simpleMessage/index.js');
 const scheduledMessage = require('./scheduledMessage/index.js');
 const account = require('./account.js');
 const messageLog = require('./messageLog/index.js');
+const images = require('./images/index.js');
 
 let apiKey = null;
 let apiSecret = null;
@@ -72,6 +73,26 @@ function getSentMessages(params, callback) {
   messageLog.getSentMessages(params, callback);
 }
 
+function uploadImage(params, callback) {
+  images.setCredential(apiKey, apiSecret);
+  images.uploadImage(params, callback);
+}
+
+function getImageList(callback) {
+  images.setCredential(apiKey, apiSecret);
+  images.getImageList(callback);
+}
+
+function getImageInfo(imageId, callback) {
+  images.setCredential(apiKey, apiSecret);
+  images.getImageInfo(imageId, callback);
+}
+
+function deleteImages(imageIds, callback) {
+  images.setCredential(apiKey, apiSecret);
+  images.deleteImages(imageIds, callback);
+}
+
 exports.groupMessage = groupMessage;
 exports.simpleMessage = simpleMessage;
 exports.scheduledMessage = scheduledMessage;
@@ -88,3 +109,7 @@ exports.sendGroupMessages = sendGroupMessages;
 exports.sendSimpleMessages = sendSimpleMessages;
 exports.getBalance = getBalance;
 exports.getSentMessages = getSentMessages;
+exports.uploadImage = uploadImage;
+exports.getImageList = getImageList;
+exports.getImageInfo = getImageInfo;
+exports.deleteImages = deleteImages;
