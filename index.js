@@ -93,6 +93,16 @@ function deleteImages(imageIds, callback) {
   images.deleteImages(imageIds, callback);
 }
 
+function getScheduledMessages(callback) {
+  scheduledMessage.setCredential(apiKey, apiSecret);
+  scheduledMessage.getScheduledMessages(callback);
+}
+
+function cancelScheduledMessages(messages, callback) {
+  scheduledMessage.setCredential(apiKey, apiSecret);
+  scheduledMessage.cancelScheduledMessages(messages, callback);
+}
+
 exports.groupMessage = groupMessage;
 exports.simpleMessage = simpleMessage;
 exports.scheduledMessage = scheduledMessage;
@@ -113,3 +123,5 @@ exports.uploadImage = uploadImage;
 exports.getImageList = getImageList;
 exports.getImageInfo = getImageInfo;
 exports.deleteImages = deleteImages;
+exports.getScheduledMessages = getScheduledMessages;
+exports.cancelScheduledMessages = cancelScheduledMessages;

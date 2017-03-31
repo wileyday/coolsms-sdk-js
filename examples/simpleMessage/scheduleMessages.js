@@ -16,14 +16,15 @@ const params = {
         "01048597580"
       ],
       "from": "029302266",
-      "text": "테스트 문자 #2",
+      "text": "테스트 문자",
       "type": "SMS",
       "country": "82",
-      "subject": "MMS 제목"
+      "subject": "MMS 제목",
+      "scheduledDate": "2017-04-10 11:40:00"
     }
   ],
   options: {
-    appId: 'K00031',
+    appId: null,
     appVersion: 'JsExample 1.0'
   }
 }
