@@ -8,21 +8,14 @@ coolsms.setCredential({
   apiKey:'NCSHZ4IU3UKAIWLU',
   apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
 });
-const groupId = 'GID6RJCZ71J0VZYMLH';
+
 const messages = [
   {
-    "to": [
-      "01048597580"
-    ],
-    "from": "029302266",
-    "text": "테스트 문자",
-    "type": "SMS",
-    "country": "82",
-    "subject": "MMS 제목"
+    messageId: 'MIDL6O1J0W3DCTM'
   }
 ];
 
-coolsms.addGroupMessages(groupId, messages, function(error, result) {
+coolsms.cancelScheduledMessages(messages, function(error, result) {
   if (error) {
     console.log(error);
   } else {

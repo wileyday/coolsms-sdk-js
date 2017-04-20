@@ -5,10 +5,10 @@
 
 const coolsms = require('../..');
 coolsms.setCredential({
-  apiKey:'NCSBHFS142UDSYOK',
-  apiSecret:'6KLUATUXSUNXCP6WYIEZACJ1FPBJ1AA7'
+  apiKey:'NCSHZ4IU3UKAIWLU',
+  apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
 });
-const groupId = 'GID6YXK251J0DELYOX';
+const groupId = 'GID6RJCZ71J0VZYMLH';
 
 coolsms.sendGroupMessages(groupId, function(error, result) {
   if (error) {

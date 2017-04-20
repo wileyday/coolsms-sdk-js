@@ -9,12 +9,7 @@ coolsms.setCredential({
   apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
 });
 
-let options = {
-  appId: 'K00031',
-  appVersion: 'JsExample v1.0.0'
-};
-
-coolsms.createGroup(options, function(error, result) {
+coolsms.getScheduledMessages(function(error, result) {
   if (error) {
     console.log(error);
   } else {
