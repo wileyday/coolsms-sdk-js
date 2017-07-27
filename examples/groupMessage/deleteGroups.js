@@ -5,10 +5,14 @@
 
 const coolsms = require('../..');
 coolsms.setCredential({
-  apiKey:'NCSBHFS142UDSYOK',
-  apiSecret:'6KLUATUXSUNXCP6WYIEZACJ1FPBJ1AA7'
+  apiKey:'NCSOGH0TB3PDIGV1',
+  apiSecret:'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
 });
-const groups = ["GIDFTBG41IZI4DU5Q"];
+const groups = [
+  {
+    "groupId": "G3V20170721234905QK4FW4TLUDUQBJM"
+  }
+];
 
 coolsms.deleteGroups(groups, function(error, result) {
   if (error) {

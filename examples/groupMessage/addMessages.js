@@ -5,16 +5,33 @@
 
 const coolsms = require('../..');
 coolsms.setCredential({
-  apiKey:'NCSHZ4IU3UKAIWLU',
-  apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
+  apiKey:'NCSOGH0TB3PDIGV1',
+  apiSecret:'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
 });
-const groupId = 'GID6RJCZ71J0VZYMLH';
+const groupId = 'G3V20170726114734DDJNAOO7RDZZEN0';
 const messages = [
   {
-    "to": [
-      "01048597580"
-    ],
-    "from": "029302266",
+    "to": {
+      "recipientsWithCustomFields": [
+        {
+          "recipient": "01000000001",
+          "customFields": {
+            "myMessageId": "my02",
+            "mySequence": 2,
+            "subGroup": {
+              "a":"a",
+              "b":"b"
+            },
+            "subArray": [
+              "1",
+              "2",
+              "3"
+            ]
+          }
+        }
+      ]
+    },
+    "from": "0200000001",
     "text": "테스트 문자",
     "type": "SMS",
     "country": "82",
@@ -26,6 +43,6 @@ coolsms.addGroupMessages(groupId, messages, function(error, result) {
   if (error) {
     console.log(error);
   } else {
-    console.log('Result:', result);
+    console.log('Result:', JSON.stringify(result, null, 2));
   }
 });

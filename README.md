@@ -1,4 +1,4 @@
-# 현재 실서비스 사용에는 불가능합니다.
+# NodeJS용 쿨에스엠에스 SDK v1.0.0-beta
 
 # coolsms-sdk-js
 Javascript용 COOLSMS SDK

@@ -3,21 +3,20 @@
  */
 'use strict';
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+
 coolsms.setCredential({
-  apiKey:'NCSY4C8GYRW7HA3L',
-  apiSecret:'BVO23R1Q0APQ08O6PA3ZSOKFWDHDNBRO'
-});
+  apiKey: 'NCSOGH0TB3PDIGV1',
+  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+})
 
-let options = {
-  appId: null,
-  appVersion: 'JsExample v1.0.0'
-};
-
-coolsms.uploadImage('sample.png', function(error, result) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Result:', result);
+coolsms.uploadImage(
+  'sample.png',
+  (error, result) => {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('Result:', result)
+    }
   }
-});
+)

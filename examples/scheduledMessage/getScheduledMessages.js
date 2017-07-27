@@ -1,18 +1,21 @@
 /**
  * vi:set sw=2 ts=2 expandtab:
  */
-'use strict';
+'use strict'
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+
 coolsms.setCredential({
-  apiKey:'NCSHZ4IU3UKAIWLU',
-  apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
-});
+  apiKey: 'NCSOGH0TB3PDIGV1',
+  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+})
 
-coolsms.getScheduledMessages(function(error, result) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Result:', result);
+coolsms.getScheduledMessages(
+  (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Result:', result);
+    }
   }
-});
+)

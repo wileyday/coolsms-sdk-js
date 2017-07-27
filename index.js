@@ -3,12 +3,12 @@
  */
 'use strict'
 
-const groupMessage = require('./groupMessage/index.js');
-const simpleMessage = require('./simpleMessage/index.js');
-const scheduledMessage = require('./scheduledMessage/index.js');
+const groupMessage = require('./groupMessage.js');
+const simpleMessage = require('./simpleMessage.js');
+const scheduledMessage = require('./scheduledMessage.js');
 const account = require('./account.js');
-const messageLog = require('./messageLog/index.js');
-const images = require('./images/index.js');
+const messageLog = require('./messageLog.js');
+const images = require('./images.js');
 
 let apiKey = null;
 let apiSecret = null;

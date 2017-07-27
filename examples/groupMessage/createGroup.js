@@ -3,21 +3,26 @@
  */
 'use strict';
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+
 coolsms.setCredential({
-  apiKey:'NCSHZ4IU3UKAIWLU',
-  apiSecret:'QZANZ8YZOJI17UULT2LCMNMPP86NPTJN'
-});
+  apiKey: 'NCSOGH0TB3PDIGV1',
+  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+})
 
-let options = {
-  appId: 'K00031',
-  appVersion: 'JsExample v1.0.0'
-};
+const groupOptions = {
+  appVersion: 'JsExample v1.0.0',
+  testMode: 'false',
+}
 
-coolsms.createGroup(options, function(error, result) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Result:', result);
+coolsms.createGroup(
+  groupOptions,
+  (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('groupId:', result.groupId)
+      console.log('Result:', result);
+    }
   }
-});
+)

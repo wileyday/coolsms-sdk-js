@@ -3,16 +3,17 @@
  */
 'use strict';
 
-const coolsms = require('../..');
-coolsms.setCredential({
-  apiKey:'NCSY4C8GYRW7HA3L',
-  apiSecret:'BVO23R1Q0APQ08O6PA3ZSOKFWDHDNBRO'
-});
+const coolsms = require('../..')
 
-coolsms.getImageInfo('IMG58DC55C0CA389', function(error, result) {
+coolsms.setCredential({
+  apiKey: 'NCSOGH0TB3PDIGV1',
+  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+})
+
+coolsms.getImageInfo('I3V20170724110638RGFPTYCTAU2CM9W', function(error, result) {
   if (error) {
-    console.log(error);
+    console.log(error)
   } else {
-    console.log('Result:', result);
+    console.log('Result:', result)
   }
-});
+})
