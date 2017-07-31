@@ -1,23 +1,21 @@
 /**
  * vi:set sw=2 ts=2 expandtab:
  */
-'use strict';
+'use strict'
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+const config = require('../config.json')
 
 coolsms.setCredential({
-  apiKey: 'NCSOGH0TB3PDIGV1',
-  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+  apiKey: config.apiKey,
+  apiSecret: config.apiSecret
 })
 
-const groupId = 'G3V20170620164230OAITFRIHRNLVQBX'
+const groupId = 'G3V20170729004731394Q1UMOOLOAUGN'
 
 const messages = [
   {
-    "messageId": "M3V20170620164239BNI6U5JIJECJXNG",
-  },
-  {
-    "messageId": "M3V201706201642391VTIWYEU2P1KI5D",
+    "messageId": "M3V20170729004741OKQHE7Z3VRJKLQL",
   },
 ]
 

@@ -4,16 +4,17 @@
 'use strict'
 
 const coolsms = require('../..')
+const config = require('../config.json')
 
 coolsms.setCredential({
-  apiKey: 'NCSOGH0TB3PDIGV1',
-  apiSecret:'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+  apiKey: config.apiKey,
+  apiSecret: config.apiSecret
 })
 
 coolsms.deleteImages(
   [
     {
-      imageId: "I3V20170726150538DWNZ1SKMGRHB0ZF"
+      imageId: "I3V20170728230206NF7G1E7IRTSAWU7"
     }
   ], function(error, result) {
     if (error) {

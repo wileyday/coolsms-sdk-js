@@ -1,0 +1,5 @@
+{
+  "_comment": "이 파일을 config.json 으로 이름을 변경하세요.",
+  "apiKey": "YOUR API KEY HERE",
+  "apiSecret": "YOU API SECRET HERE"
+}

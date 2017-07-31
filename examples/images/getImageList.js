@@ -4,10 +4,11 @@
 'use strict'
 
 const coolsms = require('../..')
+const config = require('../config.json')
 
 coolsms.setCredential({
-  apiKey: 'NCSOGH0TB3PDIGV1',
-  apiSecret: 'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
+  apiKey: config.apiKey,
+  apiSecret: config.apiSecret
 })
 
 coolsms.getImageList(

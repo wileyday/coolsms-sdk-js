@@ -1,23 +1,29 @@
 /**
  * vi:set sw=2 ts=2 expandtab:
  */
-'use strict';
+'use strict'
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+const config = require('../config.json')
+
 coolsms.setCredential({
-  apiKey:'NCSOGH0TB3PDIGV1',
-  apiSecret:'UDWMZBDEQOTXNU1K2HOUJ2ZCVELFF49A'
-});
+  apiKey: config.apiKey,
+  apiSecret: config.apiSecret
+})
+
 const groups = [
   {
-    "groupId": "G3V20170721234905QK4FW4TLUDUQBJM"
+    "groupId": "G3V20170728232843K1PH3JKMB35TUIW"
   }
-];
+]
 
-coolsms.deleteGroups(groups, function(error, result) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Result:', result);
+coolsms.deleteGroups(
+  groups,
+  (error, result) => {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('Result:', result)
+    }
   }
-});
+)

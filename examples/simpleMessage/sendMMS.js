@@ -1,21 +1,23 @@
 /**
  * vi:set sw=2 ts=2 expandtab:
  */
-'use strict';
+'use strict'
 
-const coolsms = require('../..');
+const coolsms = require('../..')
+const config = require('../config.json')
+
 coolsms.setCredential({
-  apiKey:'NCS5NLVVCWC0KI3R',
-  apiSecret:'FTY6KK29RK5Y9ADULKSLCOHSF46QOXAH'
-});
+  apiKey: config.apiKey,
+  apiSecret: config.apiSecret
+})
 
 const params = {
   messages: [
     {
       "to": {
-        "recipient": "01048597580"
+        "recipient": "01000000001"
       },
-      "from": "029302266",
+      "from": "02000000002",
       "text": "Wiley입니다. 문자 가나요?",
       "type": "MMS",
       "country": "82",
@@ -29,10 +31,13 @@ const params = {
   }
 }
 
-coolsms.sendSimpleMessages(params, function(error, result) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Result:', result);
+coolsms.sendSimpleMessages(
+  params,
+  (error, result) => {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('Result:', result)
+    }
   }
-});
+)
