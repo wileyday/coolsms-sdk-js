@@ -12,14 +12,20 @@ const images = require('./images.js');
 
 let apiKey = null;
 let apiSecret = null;
+let domainName = 'https://solapi.com'
 
 function setCredential(params) {
   apiKey = params.apiKey;
   apiSecret = params.apiSecret;
 }
 
+function setDomainName(_domainName) {
+  domainName = _domainName
+}
+
 function createGroup(options, callback) {
   groupMessage.setCredential(apiKey, apiSecret);
+  groupMessage.setDomainName(domainName)
   groupMessage.createGroup(options, callback);
 }
 
@@ -108,6 +114,7 @@ exports.simpleMessage = simpleMessage;
 exports.scheduledMessage = scheduledMessage;
 
 exports.setCredential = setCredential;
+exports.setDomainName = setDomainName
 exports.createGroup = createGroup;
 exports.addGroupMessages = addGroupMessages;
 exports.deleteGroupMessages = deleteGroupMessages;
