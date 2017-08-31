@@ -11,7 +11,7 @@ coolsms.setCredential({
   apiSecret: config.apiSecret
 })
 
-const groupId = 'G3V20170828110611EVNX6HWRC3YUUSO'
+const groupId = 'G3V20170817095410AKD0O4CNOEBQHKV'
 const messages = [
   {
     "to": {
@@ -38,7 +38,14 @@ const messages = [
     "text": "테스트 문자",
     "type": "SMS",
     "country": "82",
-    "subject": "MMS 제목"
+    "subject": "MMS 제목",
+    "kakaoOptions": {
+      "senderKey": "65640253a3e61072f57ed5a4cc2ecf965e1b546b",
+      "disableSms": "false",
+      "templateCode": "T01",
+      "buttonName": "버튼",
+      "buttonUrl": "https://www.coolsms.co.kr",
+    }
   }
 ]
 
