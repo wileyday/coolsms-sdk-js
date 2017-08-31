@@ -11,7 +11,7 @@ coolsms.setCredential({
   apiSecret: config.apiSecret
 })
 
-const groupId = 'G3V20170728224824CQC6INBIPO5JPL6'
+const groupId = 'G3V20170817095410AKD0O4CNOEBQHKV'
 
 coolsms.getGroupInfo(
   groupId,
