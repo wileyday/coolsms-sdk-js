@@ -3,8 +3,13 @@
  */
 'use strict'
 
-const baseUrl = 'https://solapi.com/GroupMessage/3'
+let domainName = 'https://solapi.com'
+const basePath = '/GroupMessage/3'
 const api = require('./requestApi.js')
+
+function setDomainName(_domainName) {
+  domainName = _domainName
+}
 
 function createGroup(options, callback) {
   let groupOptions = {
@@ -22,7 +27,7 @@ function createGroup(options, callback) {
   groupOptions = Object.assign(groupOptions, options);
 
   api.request(
-    `${baseUrl}/createGroup`,
+    `${domainName}${basePath}/createGroup`,
     { groupOptions: groupOptions },
     callback
   )
@@ -30,7 +35,7 @@ function createGroup(options, callback) {
 
 function addMessages(groupId, messages, callback) {
   api.request(
-    `${baseUrl}/group/${groupId}/addMessages`,
+    `${domainName}${basePath}/group/${groupId}/addMessages`,
     { messages: messages },
     callback
   )
@@ -38,7 +43,7 @@ function addMessages(groupId, messages, callback) {
 
 function deleteMessages(groupId, messages, callback) {
   api.request(
-    `${baseUrl}/group/${groupId}/deleteMessages`,
+    `${domainName}${basePath}/group/${groupId}/deleteMessages`,
     { messages: messages },
     callback
   )
@@ -46,7 +51,7 @@ function deleteMessages(groupId, messages, callback) {
 
 function getGroupInfo(groupId, callback) {
   api.request(
-    `${baseUrl}/group/${groupId}/getGroupInfo`,
+    `${domainName}${basePath}/group/${groupId}/getGroupInfo`,
     {},
     callback
   )
@@ -54,7 +59,7 @@ function getGroupInfo(groupId, callback) {
 
 function getMessageList(groupId, callback) {
   api.request(
-    `${baseUrl}/group/${groupId}/getMessageList`,
+    `${domainName}${basePath}/group/${groupId}/getMessageList`,
     {},
     callback
   )
@@ -62,7 +67,7 @@ function getMessageList(groupId, callback) {
 
 function getGroupList(callback) {
   api.request(
-    `${baseUrl}/getGroupList`,
+    `${domainName}${basePath}/getGroupList`,
     {},
     callback
   )
@@ -70,7 +75,7 @@ function getGroupList(callback) {
 
 function deleteGroups(groups, callback) {
   api.request(
-    `${baseUrl}/deleteGroups`,
+    `${domainName}${basePath}/deleteGroups`,
     { groups: groups },
     callback
   )
@@ -78,13 +83,14 @@ function deleteGroups(groups, callback) {
 
 function sendMessages(groupId, callback) {
   api.request(
-    `${baseUrl}/group/${groupId}/sendMessages`,
+    `${domainName}${basePath}/group/${groupId}/sendMessages`,
     {},
     callback
   )
 }
 
 module.exports.setCredential = api.setCredential
+module.exports.setDomainName = setDomainName
 module.exports.createGroup = createGroup
 module.exports.addMessages = addMessages
 module.exports.deleteMessages = deleteMessages
