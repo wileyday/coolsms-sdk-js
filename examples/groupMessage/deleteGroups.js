@@ -4,12 +4,10 @@
 'use strict'
 
 const coolsms = require('../..')
+const GroupMessage = coolsms.GroupMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+GroupMessage.setCredential(config.apiKey, config.apiSecret)
 
 const groups = [
   {
@@ -17,7 +15,7 @@ const groups = [
   }
 ]
 
-coolsms.deleteGroups(
+GroupMessage.deleteGroups(
   groups,
   (error, result) => {
     if (error) {

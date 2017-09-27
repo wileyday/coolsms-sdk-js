@@ -4,25 +4,23 @@
 'use strict'
 
 const coolsms = require('../..')
+const SimpleMessage = coolsms.SimpleMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+SimpleMessage.setCredential(config.apiKey, config.apiSecret)
 
 const params = {
   messages: [
     {
       "to": {
-        "recipient": "01000000001"
+        "recipient": "01048597580"
       },
       "from": "02000000002",
       "text": "Wiley입니다. 문자 가나요?",
       "type": "MMS",
       "country": "82",
       "subject": "MMS 제목",
-      "imageId": "I3V20170629123542O14I7CZANZV6DUA"
+      "imageId": "I3V20170909201840EAJIJHZQPK0XMTO"
     }
   ],
   options: {
@@ -31,7 +29,7 @@ const params = {
   }
 }
 
-coolsms.sendSimpleMessages(
+SimpleMessage.sendMessages(
   params,
   (error, result) => {
     if (error) {

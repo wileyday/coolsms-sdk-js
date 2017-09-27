@@ -1,134 +1,53 @@
 /**
- * vi:set sw=2 ts=2 expandtab:
+ * Coolsms SDK for Javascript
+ * @module coolsms-sdk
  */
 'use strict'
 
-const groupMessage = require('./groupMessage.js');
-const simpleMessage = require('./simpleMessage.js');
-const scheduledMessage = require('./scheduledMessage.js');
-const account = require('./account.js');
-const messageLog = require('./messageLog.js');
-const images = require('./images.js');
-
-let apiKey = null;
-let apiSecret = null;
-let domainName = 'https://solapi.com'
-
-function setCredential(params) {
-  apiKey = params.apiKey;
-  apiSecret = params.apiSecret;
+/**
+ * 심플메시지 모듈을 리턴합니다.
+ * @returns {SimpleMessage} 심플메시지 모듈
+ */
+module.exports.SimpleMessage = function() {
+  return require('./simpleMessage.js')
 }
 
-function setDomainName(_domainName) {
-  domainName = _domainName
+/**
+ * 그룹메시지 모듈을 리턴합니다.
+ * @returns {GroupMessage} 그룹메시지 모듈 
+ */
+module.exports.GroupMessage = function() {
+  return require('./groupMessage.js')
 }
 
-function createGroup(options, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.setDomainName(domainName)
-  groupMessage.createGroup(options, callback);
+/**
+ * 회원정보 모듈을 리턴합니다.
+ * @returns {Account} 회원정보 모듈
+ */
+module.exports.Account = function() {
+  return require('./account.js')
 }
 
-function addGroupMessages(groupId, messages, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.addMessages(groupId, messages, callback);
+/**
+ * 메시지로그 모듈을 리턴합니다.
+ * @returns {MessageLog} 메시지로그 모듈
+ */
+module.exports.MessageLog = function() {
+  return require('./messageLog.js')
 }
 
-function deleteGroupMessages(groupId, messages, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.deleteMessages(groupId, messages, callback);
+
+/**
+ * 이미지관리 모듈을 리턴합니다.
+ * @returns {Images} 이미지관리 모듈
+ */
+module.exports.Images = function() {
+  return require('./images.js')
 }
 
-function getGroupInfo(groupId, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.getGroupInfo(groupId, callback);
+/**
+ * 예약메시지관리 모듈을 리턴합니다.
+ */
+module.exports.ScheduledMessage = function() {
+  return require('./scheduledMessage.js')
 }
-
-function getGroupList(callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.getGroupList(callback);
-}
-
-function getGroupMessageList(groupId, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.getMessageList(groupId, callback);
-}
-
-function deleteGroups(groups, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.deleteGroups(groups, callback);
-}
-
-function sendGroupMessages(groupId, callback) {
-  groupMessage.setCredential(apiKey, apiSecret);
-  groupMessage.sendMessages(groupId, callback);
-}
-
-function sendSimpleMessages(params, callback) {
-  simpleMessage.setCredential(apiKey, apiSecret);
-  simpleMessage.sendMessages(params, callback);
-}
-
-function getBalance(callback) {
-  account.setCredential(apiKey, apiSecret);
-  account.getBalance(callback);
-}
-
-function getSentMessages(params, callback) {
-  messageLog.setCredential(apiKey, apiSecret);
-  messageLog.getSentMessages(params, callback);
-}
-
-function uploadImage(params, callback) {
-  images.setCredential(apiKey, apiSecret);
-  images.uploadImage(params, callback);
-}
-
-function getImageList(callback) {
-  images.setCredential(apiKey, apiSecret);
-  images.getImageList(callback);
-}
-
-function getImageInfo(imageId, callback) {
-  images.setCredential(apiKey, apiSecret);
-  images.getImageInfo(imageId, callback);
-}
-
-function deleteImages(imageIds, callback) {
-  images.setCredential(apiKey, apiSecret);
-  images.deleteImages(imageIds, callback);
-}
-
-function getScheduledMessages(callback) {
-  scheduledMessage.setCredential(apiKey, apiSecret);
-  scheduledMessage.getScheduledMessages(callback);
-}
-
-function cancelScheduledMessages(messages, callback) {
-  scheduledMessage.setCredential(apiKey, apiSecret);
-  scheduledMessage.cancelScheduledMessages(messages, callback);
-}
-
-exports.groupMessage = groupMessage;
-exports.simpleMessage = simpleMessage;
-exports.scheduledMessage = scheduledMessage;
-
-exports.setCredential = setCredential;
-exports.setDomainName = setDomainName
-exports.createGroup = createGroup;
-exports.addGroupMessages = addGroupMessages;
-exports.deleteGroupMessages = deleteGroupMessages;
-exports.getGroupInfo = getGroupInfo;
-exports.getGroupMessageList = getGroupMessageList;
-exports.getGroupList = getGroupList;
-exports.deleteGroups = deleteGroups;
-exports.sendGroupMessages = sendGroupMessages;
-exports.sendSimpleMessages = sendSimpleMessages;
-exports.getBalance = getBalance;
-exports.getSentMessages = getSentMessages;
-exports.uploadImage = uploadImage;
-exports.getImageList = getImageList;
-exports.getImageInfo = getImageInfo;
-exports.deleteImages = deleteImages;
-exports.getScheduledMessages = getScheduledMessages;
-exports.cancelScheduledMessages = cancelScheduledMessages;

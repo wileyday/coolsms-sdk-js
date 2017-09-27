@@ -4,19 +4,17 @@
 'use strict'
 
 const coolsms = require('../..')
+const GroupMessage = coolsms.GroupMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+GroupMessage.setCredential(config.apiKey, config.apiSecret)
 
 const groupOptions = {
   appVersion: 'JsExample v1.0.0',
   testMode: 'false',
 }
 
-coolsms.createGroup(
+GroupMessage.createGroup(
   groupOptions,
   (error, result) => {
     if (error) {

@@ -4,14 +4,12 @@
 'use strict'
 
 const coolsms = require('../..')
+const ScheduledMessage = coolsms.ScheduledMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+ScheduledMessage.setCredential(config.apiKey, config.apiSecret)
 
-coolsms.getScheduledMessages(
+ScheduledMessage.getScheduledMessages(
   (error, result) => {
     if (error) {
       console.log(error)

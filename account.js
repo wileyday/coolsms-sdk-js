@@ -1,5 +1,6 @@
 /**
- * vi:set sw=2 ts=2 expandtab:
+ * 계정정보를 조회합니다. 현재는 잔액정보만 가져올 수 있습니다.
+ * @module Account
  */
 'use strict'
 
@@ -11,12 +12,21 @@ let apiSecret = null
 const uniqid = require('uniqid')
 const HmacMD5 = require('crypto-js/hmac-md5')
 
-function setCredential(_apiKey, _apiSecret) {
+/**
+ * API Key 와 API Secret 을 설정한다.
+ * @param {string} apiKey - API Key 입력
+ * @param {string} apiSecret - API Secret 입력
+ */
+module.exports.setCredential = function(_apiKey, _apiSecret) {
   apiKey = _apiKey
   apiSecret = _apiSecret
 }
 
-function getBalance(callback) {
+/**
+ * 잔액정보를 가져옵니다.
+ * @param {getBalanceCallback} callback - 잔액정보를 가져온 뒤 호출되는 콜백 함수
+ */
+module.exports.getBalance = function(callback) {
   const url = `https://api.coolsms.co.kr/sms/2/balance`
   const salt = uniqid()
   const timestamp = moment().tz('Asia/Seoul').unix()
@@ -40,5 +50,9 @@ function getBalance(callback) {
   )
 }
 
-module.exports.setCredential = setCredential
-module.exports.getBalance = getBalance
+/**
+ * 잔액정보를 가져온 뒤 호출되는 콜백 함수
+ * @callback getBalanceCallback
+ * @param {string} error - 오류 메시지
+ * @param {object} result - 잔액정보를 담은 오브젝트
+ */

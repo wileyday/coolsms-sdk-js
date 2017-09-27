@@ -4,14 +4,12 @@
 'use strict'
 
 const coolsms = require('../..')
+const Images = coolsms.Images()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+Images.setCredential(config.apiKey, config.apiSecret)
 
-coolsms.uploadImage(
+Images.uploadImage(
   'sample.png',
   (error, result) => {
     if (error) {

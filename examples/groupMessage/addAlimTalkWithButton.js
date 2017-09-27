@@ -4,12 +4,10 @@
 'use strict'
 
 const coolsms = require('../..')
+const GroupMessage = coolsms.GroupMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+GroupMessage.setCredential(config.apiKey, config.apiSecret)
 
 const groupId = 'G3V20170817095410AKD0O4CNOEBQHKV'
 const messages = [
@@ -49,7 +47,7 @@ const messages = [
   }
 ]
 
-coolsms.addGroupMessages(
+GroupMessage.addMessages(
   groupId,
   messages,
   (error, result) => {

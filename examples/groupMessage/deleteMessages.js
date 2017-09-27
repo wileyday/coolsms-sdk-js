@@ -4,12 +4,10 @@
 'use strict'
 
 const coolsms = require('../..')
+const GroupMessage = coolsms.GroupMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+GroupMessage.setCredential(config.apiKey, config.apiSecret)
 
 const groupId = 'G3V20170729004731394Q1UMOOLOAUGN'
 
@@ -19,7 +17,7 @@ const messages = [
   },
 ]
 
-coolsms.deleteGroupMessages(
+GroupMessage.deleteMessages(
   groupId,
   messages,
   (error, result) => {

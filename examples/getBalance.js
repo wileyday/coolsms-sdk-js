@@ -4,14 +4,12 @@
 'use strict'
 
 const coolsms = require('..')
+const Account = coolsms.Account()
 const config = require('./config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+Account.setCredential(config.apiKey, config.apiSecret)
 
-coolsms.getBalance(
+Account.getBalance(
   (error, result) => {
     if (error) {
       console.log(error)

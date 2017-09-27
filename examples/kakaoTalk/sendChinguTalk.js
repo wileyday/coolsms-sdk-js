@@ -4,12 +4,10 @@
 'use strict'
 
 const coolsms = require('../..')
+const SimpleMessage = coolsms.SimpleMessage()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+SimpleMessage.setCredential(config.apiKey, config.apiSecret)
 
 const params = {
   messages: [
@@ -34,7 +32,7 @@ const params = {
   }
 }
 
-coolsms.sendSimpleMessages(
+SimpleMessage.sendMessages(
   params,
   (error, result) => {
     if (error) {

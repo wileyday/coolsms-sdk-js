@@ -4,19 +4,17 @@
 'use strict'
 
 const coolsms = require('../..')
+const MessageLog = coolsms.MessageLog()
 const config = require('../config.json')
 
-coolsms.setCredential({
-  apiKey: config.apiKey,
-  apiSecret: config.apiSecret
-})
+MessageLog.setCredential(config.apiKey, config.apiSecret)
 
 const params = {
   begin: '2017-03-18 00:00:00',
   end: '2017-03-19 00:30:00'
 }
 
-coolsms.getSentMessages(
+MessageLog.getSentMessages(
   params,
   (error, result) => {
     if (error) {

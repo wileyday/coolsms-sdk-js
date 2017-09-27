@@ -1,12 +1,17 @@
 /**
- * vi:set sw=2 ts=2 expandtab:
+ * 한번의 요청으로 메시지를 발송합니다.
+ * @module SimpleMessage
  */
 'use strict'
 
 const baseUrl = 'https://solapi.com/SimpleMessage/3'
 const api = require('./requestApi.js')
 
-function sendMessages(params, callback) {
+/**
+ * 한번의 요청으로 메시지를 발송합니다.
+ * @param {object} params - 발송할 메시지 데이터 [Syntax](https://docs.coolsms.co.kr/rest/simple-message.html#request-syntax)
+ */
+module.exports.sendMessages = function(params, callback) {
   let groupOptions = {
     "appId": null,
     "osPlatform": "NodeJS",
@@ -28,5 +33,9 @@ function sendMessages(params, callback) {
   )
 }
 
-module.exports.setCredential = api.setCredential;
-module.exports.sendMessages = sendMessages;
+/**
+ * API Key 및 API Secret 설정
+ * @param {string} apiKey - API Key 입력
+ * @param {string} apiSecret - API Secret 입력
+ */
+module.exports.setCredential = api.setCredential
